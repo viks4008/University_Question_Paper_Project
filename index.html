@@ -148,6 +148,24 @@
     outline:none;
   }
   .field input:focus, .field select:focus{ border-color:var(--brick); }
+  .pwField{ position:relative; }
+  .pwField input{ padding-right:40px; }
+  .pwToggle{
+    position:absolute;
+    right:4px;
+    top:50%;
+    transform:translateY(-50%);
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:6px 8px;
+    color:var(--text-muted);
+    font-size:11px;
+    font-family:var(--font-mono);
+    letter-spacing:.04em;
+    text-transform:uppercase;
+  }
+  .pwToggle:hover{ color:var(--text-dark); }
   .fieldHint{
     display:block;
     font-size:11px;
@@ -784,9 +802,10 @@
           <label for="loginUser">Username</label>
           <input id="loginUser" type="text" autocomplete="username" required>
         </div>
-        <div class="field">
+        <div class="field pwField">
           <label for="loginPass">Password</label>
           <input id="loginPass" type="password" autocomplete="current-password" required>
+          <button type="button" class="pwToggle" data-toggle-for="loginPass">Show</button>
         </div>
         <button type="submit" class="loginBtn" id="loginSubmitBtn">Sign in</button>
       </form>
@@ -824,13 +843,15 @@
           <label for="suUsername">User name</label>
           <input id="suUsername" type="text" autocomplete="off" required>
         </div>
-        <div class="field">
+        <div class="field pwField">
           <label for="suPassword">Password</label>
           <input id="suPassword" type="password" autocomplete="new-password" required>
+          <button type="button" class="pwToggle" data-toggle-for="suPassword">Show</button>
         </div>
-        <div class="field">
+        <div class="field pwField">
           <label for="suRetype">Retype password</label>
           <input id="suRetype" type="password" autocomplete="new-password" required>
+          <button type="button" class="pwToggle" data-toggle-for="suRetype">Show</button>
         </div>
         <button type="submit" class="loginBtn" id="signupSubmitBtn">Create account</button>
       </form>
@@ -1008,7 +1029,7 @@
    ========================================================================== */
 const SHEET_ID = "1z3sukkBDsJuaiHc3az8G6_K9AD71_PsN60gYNKozaT0";
 const SHEET_GID = "0";
-const SHEET_WEBAPP_URL = ""; // paste your Apps Script /exec URL here
+const SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwbMRdkhsEC-Pp1bYFFEw-A6DyhRkpoiKI85hFcsikG6G6EX-0L-ZcQzSfXGfoXxxrzkw/exec"; // paste your Apps Script /exec URL here
 const ROOT_DRIVE_FOLDER_ID = "1xZb6NpUFa5EZ2Fw7yKeiBw4qBATWVh4s"; // your archive Drive folder
 
 function gvizUrl(){
@@ -1234,6 +1255,16 @@ function setButtonBusy(btn, busy, busyLabel, idleLabel){
   btn.disabled = busy;
   btn.textContent = busy ? busyLabel : idleLabel;
 }
+
+/* ---- Show/hide password toggles ---- */
+document.querySelectorAll('.pwToggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const input = document.getElementById(btn.dataset.toggleFor);
+    const showing = input.type === 'text';
+    input.type = showing ? 'password' : 'text';
+    btn.textContent = showing ? 'Show' : 'Hide';
+  });
+});
 
 /* ---- Sign in ---- */
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
