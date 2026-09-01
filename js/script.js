@@ -295,7 +295,7 @@
         }
 
    ========================================================================== */
-const SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwXBaHcV7Guk7Z4Fb1EQgv0rs8KFkP-oBC6dwzH5u3SOFo8FmonUNBwez2IHnPd3bXbSw/exec"; // your Apps Script /exec URL
+const SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbyV4LDBVkf5qVHV90f4cuo4hVimACikTrK0y-6EJKxsF_4Iu0pBpZrcd5ZbVdivBFrttA/exec"; // your Apps Script /exec URL
 const ROOT_DRIVE_FOLDER_ID = "1xZb6NpUFa5EZ2Fw7yKeiBw4qBATWVh4s"; // your archive Drive folder
 
 /* Shows a plain browser alert the first time we detect the device itself
