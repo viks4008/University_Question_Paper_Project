@@ -2,27 +2,41 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=main.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta http-equiv="refresh" content="0; url=html/main.html">
+
 <title>Question Paper Archive</title>
+
 <style>
-  body{
-    margin:0;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#1B2430;
-    color:#F2EEE3;
-    font-family:'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1B2430;
+    color: #F2EEE3;
+    font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
   }
-  a{ color:#C98A3E; }
+
+  a {
+    color: #C98A3E;
+  }
 </style>
 </head>
+
 <body>
-  <!-- This file just hands off to the real app in html/main.html, so the
-       project folder's own index.html works as an entry point regardless
-       of where the folder is opened or hosted from. -->
-  <p>Loading Question Paper Archive… if it doesn't load, <a href="main.html">click here</a>.</p>
-  <script>window.location.replace('main.html');</script>
+
+  <p>
+    Loading Question Paper Archive…
+    If it doesn't load,
+    <a href="html/main.html">click here</a>.
+  </p>
+
+  <script>
+    window.location.replace('html/main.html');
+  </script>
+
 </body>
 </html>
